@@ -33,6 +33,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color:var(--gray-400);
         -webkit-font-smoothing: antialiased;
         color: white;
+        text-align:center;
     }
     
     button {
@@ -42,5 +43,35 @@ export const GlobalStyle = createGlobalStyle`
         opacity: .6;
         cursor: not-allowed;
     }
+    
+    .loading {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--gray-400);
+        opacity: .5;
+        color: var(--white);
 
+        svg{
+            animation: spin 1s infinite linear;
+            font-size:5rem;
+            z-index: 10;
+        }
+        
+    }
+
+    @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+    
+}
 `

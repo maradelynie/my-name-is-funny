@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Container, Shadow } from './styles'
 import { useQuery, gql } from '@apollo/client'
+import { FaCircleNotch } from 'react-icons/fa'
 
 interface Names {
   name: string;
@@ -26,7 +27,7 @@ const NAMES_SUBS = gql`
 
 export default function ListName() {
 
-  const { loading, error, subscribeToMore } = useQuery(NAMES);
+  const { error, subscribeToMore } = useQuery(NAMES);
   const [namesList, setNamesList] = useState<Names[]>([])
 
   useEffect(() => {
@@ -46,16 +47,17 @@ export default function ListName() {
     })
   }
 
-  if(loading) return <span>Loading...</span>
   if(error) return <span> Unavaliable Server, sorry :(</span>
 
   return (
       <Container>
-        <ul>
-          {namesList?.map((item:Names)=>{
-            return <li key={item.id}>{item.name}</li>
-          })}
-        </ul>
+        {!namesList.length?<div className="loading"><FaCircleNotch /></div>:
+          <ul>
+            {namesList.map((item:Names)=>{
+              return <li key={item.id}>{item.name}</li>
+            })}
+          </ul>
+        }
         <Shadow />
       </Container>
   );

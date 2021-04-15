@@ -5,13 +5,16 @@ export const Container = styled.div`
     position: relative;
     display:flex;
     justify-content: center;
+
+    height:100%;
     
     ul {
         list-style: none;
         text-overflow:ellipsis; 
         white-space:nowrap; 
-        overflow:hidden
+        overflow:hidden;
     }
+    
 `
 export const Shadow = styled.div`
     background: linear-gradient(transparent, var(--gray-400) );
