@@ -10,6 +10,7 @@ export const Container = styled.form`
     padding: 1.5rem 2rem;
     text-align: center;
     line-height: 1.3rem;
+    z-index: 10;
     
     div {
         margin-top: 1rem;
