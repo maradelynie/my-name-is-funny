@@ -1,5 +1,8 @@
 # my-name-is-funny
 
+If your name is funny write it down and send it.
+Why? Just because.
+
 [![](https://github.com/maradelynie/my-name-is-funny/blob/main/video.png)](https://youtu.be/fvZeGrWTTHU)
 
 This is a fast project using GraphQl, apollo, typescript, styled-components and TDD.
