@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Container, Shadow } from './styles'
 import { useQuery, gql } from '@apollo/client'
 import { FaCircleNotch } from 'react-icons/fa'
+import Loading from '../Loading';
 
 interface Names {
   name: string;
@@ -31,16 +32,14 @@ export default function ListName() {
   const [namesList, setNamesList] = useState<Names[]>([])
 
   useEffect(() => {
-
     if(NAMES) subsciption()
-
   }, [])
 
   function subsciption () {
     subscribeToMore({
       document: NAMES_SUBS,
       updateQuery: (prev, { subscriptionData }) => {
-
+  
         if (!subscriptionData.data) return prev;
         return setNamesList(subscriptionData.data.names)
       }
@@ -51,13 +50,12 @@ export default function ListName() {
 
   return (
       <Container>
-        {!namesList.length?<div className="loading"><FaCircleNotch /></div>:
+        <Loading status={!namesList.length}/>
           <ul>
-            {namesList.map((item:Names)=>{
+            {namesList?.map((item:Names)=>{
               return <li key={item.id}>{item.name}</li>
             })}
           </ul>
-        }
         <Shadow />
       </Container>
   );
