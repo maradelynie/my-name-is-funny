@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Container, Shadow } from './styles'
 import { useQuery, gql } from '@apollo/client'
-import { FaCircleNotch } from 'react-icons/fa'
 import Loading from '../Loading';
 
 interface Names {

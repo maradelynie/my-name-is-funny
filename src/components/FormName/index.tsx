@@ -1,7 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { Container } from './styles'
 import { gql, useMutation } from '@apollo/client';
-import {FaCircleNotch} from 'react-icons/fa'
 import Loading from '../Loading';
 
 const ADD_NAME = gql`
