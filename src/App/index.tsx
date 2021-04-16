@@ -9,11 +9,11 @@ import ListName from '../components/ListName';
 import { AppContainer } from './styles';
 
 const httpLink = new HttpLink({
-    uri: 'https://my-name-is-funny.herokuapp.com/v1/graphql'
+    uri: process.env.REACT_APP_APOLLO_URL_QUERY,
 });
 
 const wsLink = new WebSocketLink({
-    uri: 'wss://my-name-is-funny.herokuapp.com/v1/graphql',
+    uri: process.env.REACT_APP_APOLLO_URL_SUBSCRIPTION || "wss://localhost:3000/",
     options: {
     reconnect: true
   }
